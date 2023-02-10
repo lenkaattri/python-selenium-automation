@@ -1,0 +1,9 @@
+Basic command line commands
+pwd – print working directory, to see where you are, if you create file it will appear in that directory
+ls -a – list all files, including hidden in current directory
+mkdir newFolder – to create folder
+cd newFolder – to change directory
+touch fileName – create file
+nano – open text editor
+echo “Your text” > yourfilename.txt – will create text file with provided text
+rm – remove file
