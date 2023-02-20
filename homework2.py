@@ -41,23 +41,26 @@ driver.find_element(By.XPATH, '//a[@id="createAccountSubmit"]')
 
 
 #Conditions of use link
-driver.find_element(By.XPATH, '//a[@href="/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088"]')
+driver.find_element(By.XPATH, '//a[contains(@href, "ap_signin_notification_condition_of_use")]')
 
 
 #Privacy Notice link
-driver.find_element(By.XPATH, '//a[@href="/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=468496"]')
+driver.find_element(By.XPATH, '//a[contains(@href, "ap_signin_notification_privacy_notice")]')
 
 #3. Create a test case for the Sign In page using python & selenium script.
 #(Make sure to use Incognito browser mode when searching for locators)
 #Test Case: Logged out user sees Sign in page when clicking Orders
 
 driver.get('https://www.amazon.com/')
-driver.find_element(By.XPATH, '//a[@id="nav-orders"]').click()
-#Verify Sign in text
-driver.find_element(By.CSS_SELECTOR, 'h1.a-spacing-small')
-time.sleep(1)
-#Verify email field
-driver.find_element(By.XPATH, '//input[@type="email"]')
+driver.find_element(By.ID, 'nav-orders').click()
+
+expected_text = 'Sign in'
+actual_text = driver.find_element(By.XPATH, '//h1[@class="a-spacing-small"]').text
+
+assert actual_text == expected_text, 'fExpected {expected_text} but got {actual_text}'
+
+#Verify email field present
+assert driver.find_element(By.ID, 'ap_email').is_displayed(), 'Email field not shown'
 
 
 driver.quit()

@@ -4,6 +4,7 @@ ls -a – list all files, including hidden in current directory
 mkdir newFolder – to create folder
 cd newFolder – to change directory
 touch fileName – create file
+cat fileName - see the file content
 nano – open text editor
 echo “Your text” > yourfilename.txt – will create text file with provided text
 rm – remove file
